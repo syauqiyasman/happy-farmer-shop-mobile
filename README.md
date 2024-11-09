@@ -46,3 +46,44 @@ numbers.add(4); // Error
 4. Mengubah nama aplikasi menjadi happy farmer shop
 5. Menyesuaikan text pada button
 6. Memberi warna yang perbeda pada ketiga button
+
+# Tugas 8
+
+### Apa kegunaan const di Flutter? Jelaskan apa keuntungan ketika menggunakan const pada kode Flutter. Kapan sebaiknya kita menggunakan const, dan kapan sebaiknya tidak digunakan?
+const digunakan untuk mendeklarasikan objek atau widget yang bersifat konstan dan tidak berubah, hal itu dapat membantu mengoptimalkan performa dan efisiensi memori dengan menghindari pembuatan objek yang sama berulang kali. Menggunakan const pada widget yang statis atau tidak bergantung pada perubahan data, memungkinkan Flutter untuk mempercepat rendering dan mengurangi overhead memori. Namun, const tidak cocok untuk widget yang bergantung pada state atau variabel yang dinamis, seperti widget yang teksnya berubah berdasarkan input pengguna. const sangat cocok digunakan ketika objek atau widget benar-benar immutabel dan tidak akan diubah selama siklus hidup aplikasi.
+
+### Jelaskan dan bandingkan penggunaan Column dan Row pada Flutter. Berikan contoh implementasi dari masing-masing layout widget ini!
+Column digunakan untuk menyusun widget secara vertikal. Artinya, semua widget yang dimasukkan ke dalam Column akan diletakkan satu per satu di bawah (vertikal) dari widget sebelumnya.
+```
+body: Column(
+          mainAxisAlignment: MainAxisAlignment.center, // Menyusun widget di tengah secara vertikal
+          crossAxisAlignment: CrossAxisAlignment.center, // Menyusun widget di tengah secara horizontal
+          children: const [
+            Text('Item 1'),
+            Text('Item 2'),
+            Text('Item 3'),
+          ],
+        ),
+```
+
+Row digunakan untuk menyusun widget secara horizontal. Artinya, widget dalam Row akan diletakkan satu per satu secara bersebelahan (horizontal).
+```
+body: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Menyusun widget dengan jarak yang merata
+          crossAxisAlignment: CrossAxisAlignment.center, // Menyusun widget di tengah secara vertikal
+          children: const [
+            Icon(Icons.home),
+            Icon(Icons.search),
+            Icon(Icons.settings),
+          ],
+        ),
+```
+
+### Sebutkan apa saja elemen input yang kamu gunakan pada halaman form yang kamu buat pada tugas kali ini. Apakah terdapat elemen input Flutter lain yang tidak kamu gunakan pada tugas ini? Jelaskan!
+Form tersebut menggunakan TextFormField untuk menerima input nama, harga, deskripsi, kuantitas, dan url gambar. Terdapat elemen form lain seperti Checkbox, RadioButton, DropdownButton, Switch, dan lainnya lebih relevan jika diperlukan untuk menangani tipe input lain yang tidak hanya berupa teks.
+
+### Bagaimana cara kamu mengatur tema (theme) dalam aplikasi Flutter agar aplikasi yang dibuat konsisten? Apakah kamu mengimplementasikan tema pada aplikasi yang kamu buat?
+Tema diimplementasikan menggunakan ThemeData untuk mengonfigurasi tema aplikasi secara global melalui MaterialApp. Pada aplikasi ini, menggunakan colorScheme untuk menentukan warna primer dan sekunder.
+
+### Bagaimana cara kamu menangani navigasi dalam aplikasi dengan banyak halaman pada Flutter?
+Aplikasi ini menggunakan Navigator.pushReplacement() dan Navigator.push() untuk berpindah halaman. Navigator.pushReplacement() digunakan ketika ingin berpindah ke halaman utama atau home, sedangkan Navigator.push() digunakan untunk berpindah ke halaman AddProductFormPage. Perpindahan halaman tersebut dapat diakses melalui Left Drawer atau juga menu button pada halaman home.
