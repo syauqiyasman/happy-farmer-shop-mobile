@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:happy_farmer_shop/screens/list_product.dart';
 import 'package:happy_farmer_shop/screens/menu.dart';
 import 'package:happy_farmer_shop/screens/add_product_form.dart';
 
@@ -60,6 +61,17 @@ class LeftDrawer extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => const AddProductFormPage(),
                   )
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.shopping_bag_outlined),
+            title: const Text('Daftar Produk'),
+            onTap: () {
+              // Route menu ke halaman mood
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ListProductPage()),
               );
             },
           ),
